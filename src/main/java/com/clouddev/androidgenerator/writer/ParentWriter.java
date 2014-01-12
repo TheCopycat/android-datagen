@@ -16,12 +16,16 @@ public abstract class ParentWriter {
 	protected Database database;
 	protected Map<String,Object> datas = new HashMap<String,Object>();
 	public static final String FILE_EXTENSION = ".java";
+	public static final String DATA_PATH = "datas";
+	public static final String BEAN_PATH = "beans";
 	
 	public ParentWriter(Database database) {
 		this.database = database;
 		datas.put("database",database);
 		datas.put("package", database.getPackageName());
 		datas.put("tables", database.getTables());
+		datas.put("datapath", DATA_PATH);
+		datas.put("beanpath", BEAN_PATH);
 	}
 	
 	protected abstract String getTemplate();

@@ -1,4 +1,4 @@
-package ${package}.data.provider;
+package ${package}.${datapath}.provider;
 
 import java.util.List;
 

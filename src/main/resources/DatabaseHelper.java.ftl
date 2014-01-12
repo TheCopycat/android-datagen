@@ -1,14 +1,14 @@
-package ${package}
+package ${package}.${datapath};
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 <#list tables as table>
-import ${package}.data.beans.${table.getTableBean()};
+import ${package}.${datapath}.${beanpath}.${table.getTableBean()};
 </#list>
 
-public class ResolutionDatabaseHelper extends SQLiteOpenHelper
+public class ${database.className}DatabaseHelper extends SQLiteOpenHelper
 {
 
 	public static final String DATABASE_NAME = "${database.name}Database";

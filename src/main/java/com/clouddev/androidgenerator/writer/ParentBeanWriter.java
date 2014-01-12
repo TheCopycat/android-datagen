@@ -20,8 +20,8 @@ public class ParentBeanWriter extends ParentWriter {
 	@Override
 	protected String getOutputFile() {
 		String output = database.getPackageName().replace('.', File.separatorChar)+
-				File.separator+"datas"+
-				File.separator+"beans"+
+				File.separator+DATA_PATH+
+				File.separator+BEAN_PATH+
 				File.separator+"ParentBean"+FILE_EXTENSION;
 		System.out.println("Output file to : "+output);
 		return output;

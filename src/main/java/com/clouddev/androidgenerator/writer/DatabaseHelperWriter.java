@@ -8,7 +8,6 @@ public class DatabaseHelperWriter extends ParentWriter {
 
 	public DatabaseHelperWriter(Database database) {
 		super(database);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -21,7 +20,7 @@ public class DatabaseHelperWriter extends ParentWriter {
 	@Override
 	protected String getOutputFile() {
 		String output = database.getPackageName().replace('.', File.separatorChar)+
-				File.separator+"datas"+
+				File.separator+DATA_PATH+
 				File.separator+database.getClassName()+"DatabaseHelper"+FILE_EXTENSION;
 		System.out.println("Output file to : "+output);
 		return output;

@@ -1,4 +1,4 @@
-package ${package}
+package ${package}.${datapath}.${beanpath};
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;

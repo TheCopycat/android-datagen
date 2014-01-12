@@ -1,10 +1,10 @@
-package ${package}.data.beans;
+package ${package}.${datapath}.${beanpath};
 
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import ${package}.data.${database.className}DatabaseHelper;
-import ${package}.data.ParentBean;
+import ${package}.${datapath}.${database.className}DatabaseHelper;
+import ${package}.${datapath}.${beanpath}.ParentBean;
 
 public class ${table.className}Bean extends ParentBean
 {
