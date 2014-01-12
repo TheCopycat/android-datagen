@@ -40,6 +40,14 @@ public class Main {
 				System.exit(0);
 			}
 			
+			if (cmd.hasOption(OPTION_INPUT)) {
+				inputFile = cmd.getOptionValue(OPTION_INPUT);
+			}
+			
+			if (cmd.hasOption(OPTION_OUTPUT)) {
+				outputFolder = cmd.getOptionValue(OPTION_OUTPUT);
+			}
+			
 			System.out.println("== ANDROID DATABASE GENERATOR ==");
 			System.out.println("====== V1.0 by The Copycat =====");
 			
@@ -77,12 +85,14 @@ public class Main {
 		
 		//Input Option
 		Option input = OptionBuilder.withArgName("input xml")
+				.hasArg()
                 .withDescription("use given xml file for input")
                 .create(OPTION_INPUT);
 		options.addOption(input);
 		
 		//Output path
 		Option output = OptionBuilder.withArgName("output folder")
+				.hasArg()
 				.withDescription("output folder for data generation")
 				.create(OPTION_OUTPUT);
 		options.addOption(output);
