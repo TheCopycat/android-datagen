@@ -10,6 +10,7 @@ public class Column extends Element {
 	private Type type;
 	private String tableName;
 	private int position;
+	private boolean primaryKey;
 	
 	
 	public String getColumnConst() {
@@ -56,6 +57,15 @@ public class Column extends Element {
 
 	public void setPosition(int position) {
 		this.position = position;
+	}
+
+	@XmlAttribute(name="primarykey")
+	public boolean isPrimaryKey() {
+		return primaryKey;
+	}
+
+	public void setPrimaryKey(boolean primaryKey) {
+		this.primaryKey = primaryKey;
 	}
 
 }

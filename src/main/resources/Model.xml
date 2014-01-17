@@ -2,7 +2,7 @@
 <root>
 	<database name="resolutionDatabase" package="com.cma.resolutionmaker">
 		<table name="resolution">
-			<column name="id" type="integer" />
+			<column name="id" type="integer" primarykey="true" />
 			<column name="activity" type="text" />
 			<column name="type" type="text" />
 			<column name="subType" type="text" />
