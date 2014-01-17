@@ -1,8 +1,12 @@
 package ${package}.${datapath};
 
+import javax.management.InstanceAlreadyExistsException;
+import javax.management.InstanceNotFoundException;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 <#list tables as table>
 import ${package}.${datapath}.${beanpath}.${table.getTableBean()};
@@ -27,8 +31,49 @@ public class ${database.className}DatabaseHelper extends SQLiteOpenHelper
 	</#list>
 	
 	</#list>
+	
+	private static final String TAG = DATABASE_NAME+"-helper";
 
-	public ${database.className}DatabaseHelper(Context context)
+	private SQLiteDatabase database;
+	
+	public SQLiteDatabase getDatabase() {
+		try {
+			if (database == null) {
+				database = getWritableDatabase();
+			}
+		} catch (SQLiteException sqle) {
+			Log.w(TAG,"could not get database on first attempt because "+sqle.getMessage()+". Retrying");
+			database = getWritableDatabase();
+		}
+		return database;
+		
+	}
+	
+	private static ${database.className}DatabaseHelper _instance;
+	
+	public static void init(Context context) throws InstanceAlreadyExistsException {
+		if (null != _instance) {
+			throw new InstanceAlreadyExistsException("Instance is already declared, you must call 'getInstance'.");
+		}
+		_instance = new ${database.className}DatabaseHelper(context.getApplicationContext());
+		
+	}
+	
+	public static ${database.className}DatabaseHelper getInstance() throws InstanceNotFoundException {
+		if (null == _instance) {
+			throw new InstanceNotFoundException("Instance is not declared. Did you forget to call 'init' first ?"); 
+		}
+		return _instance;
+	}
+	
+	public static ${database.className}DatabaseHelper getInstance(Context context) {
+		if (_instance == null) {
+			_instance = new ${database.className}DatabaseHelper(context.getApplicationContext());
+		}
+		return _instance;
+	}
+
+	private ${database.className}DatabaseHelper(Context context)
 	{
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
