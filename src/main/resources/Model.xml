@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<database name="resolutionDatabase" package="com.cma.resolutionmaker">
+		<table name="resolution">
+			<column name="id" type="integer" primarykey="true" />
+			<column name="activity" type="text" />
+			<column name="type" type="text" />
+			<column name="subType" type="text" />
+			<column name="year" type="integer" />
+			<column name="month" type="integer" />
+			<column name="progress" type="integer" />
+		</table>
+		<table name="type">
+			<column name="type" type="text"/>
+			<column name="subType" type="text"/>
+		</table>
+		<table name="requirement">
+			<column name="id" type="integer" />
+			<column name="year" type="integer"/>
+			<column name="type" type="text"/>
+			<column name="subtype" type="text"/>
+			<column name="quantity" type="integer" />
+		</table>
+	</database>
+</root>
