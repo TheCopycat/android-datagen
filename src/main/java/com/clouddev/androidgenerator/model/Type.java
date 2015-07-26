@@ -4,7 +4,8 @@ public enum Type {
 	NULL("null","null"),
 	INTEGER("integer","int"),
 	LONG("long","long"),
-	TEXT("text","String");
+	TEXT("text","String"),
+	BOOLEAN("tinyint","int");
 	
 	private String type;
 	private String javatype;
